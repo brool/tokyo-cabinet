@@ -21,6 +21,7 @@ the various access routines within the scope of the call.  For
 example, here's how to create a cabinet with three entries.
 
 ::
+
     (ns user (:use tokyo-cabinet))  ;; bring into our namespace
     
     (with-cabinet { :filename "test.tokyo" :mode (+ OWRITER OCREAT) } 
@@ -66,7 +67,7 @@ Queries can be run, and you can use (hint) to take a look at how the query is be
         (showrows [[:age ">=" 30]])
         (showrows [[:hobbies "any-token" "soccer"]]))
 
-Leads to the following output:
+Leads to the following output::
 
     Query:  [[:age >= 30]]
     Hint:  scanning the whole table
@@ -114,7 +115,7 @@ Running the queries again, with indexes:
         (showrows [[:age ">=" 30]])
         (showrows [[:hobbies "any-token" "soccer"]]))
 
-Gets the following hint: 
+Gets the following hint::
 
     Query:  [[:age >= 30]]
     Hint:  using an index: ":age" asc (NUMGT/NUMGE)
@@ -174,7 +175,7 @@ Depending on your application, it might not be convenient to have to
 bracket everything with with-cabinet, since that means an open and
 close.  You can also use the lower level open-cabinet and
 close-cabinet calls, along with the "with" statement.  This is also an
-easier way to use it at the command line.  For example:
+easier way to use it at the command line.  For example::
 
        (def test-database (open-cabinet { :filename "test-open.tokyo" :mode (+ OWRITER OCREAT) }))
        (with test-database (put-value "1" "one"))
