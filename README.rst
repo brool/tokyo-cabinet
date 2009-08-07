@@ -47,6 +47,8 @@ A *table* in Tokyo Cabinet can be used to store arbitrary hash maps.  For exampl
         (put-value nil { :name "Tom Swift" :hobbies "inventing exploring" :gender "M" })
         (put-value nil { :name "Harry Potter" :hobbies "magic quidditch flying" :gender "M" :age 9 }))
 
+Since the cabinet was created in :table mode, put-value will take a map instead of a single value.  A nil value for the key automatically generates a unique primary key.
+
 Queries
 -------
 
