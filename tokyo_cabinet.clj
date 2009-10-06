@@ -56,7 +56,6 @@
   `(binding [*tokyo* ~cabinet]
      (do ~@body)))
      
-
 (defn- check-type 
   "Utility function.  Make sure that the cabinet is the right type."
   [type]
@@ -67,14 +66,27 @@
   (check-type :table)
   (.genuid (*tokyo* :connection)))
 
-(defn get-value "Gets a value from the cabinet." [key] (.get (*tokyo* :connection) (str key)))
+(defn get-value "Gets a value from the cabinet."
+  [key]
+  (.get (*tokyo* :connection) (str key)))
+
 (defn put-value 
   "Puts a value into the cabinet. With tables, you can use nil for the
   key to use an arbitrary unique key."  
   [key val]
-  (when (nil? key) (check-type :table))
+  (when (nil? key)
+    (check-type :table))
   (let [putkey (if (nil? key) (genuid) key)]
     (.put (*tokyo* :connection) (str putkey) val)))
+
+(defn putdup-value [key val]
+  (when (nil? key)
+    (check-type :table))
+  (let [putkey (if (nil? key) (genuid) key)]
+    (.putdup (*tokyo* :connection) (str putkey) val)))
+
+(defn getdup-value [key]
+  (.getlist (*tokyo* :connection) (str key)))
 
 ;;
 ;; indexes
@@ -226,4 +238,3 @@
     (if result
       (primary-keys*)
       nil)))
-

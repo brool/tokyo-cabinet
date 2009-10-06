@@ -35,6 +35,24 @@ key.  Now query an entry::
         (get-value "1"))
     "one"
 
+B+ Tree
+-------
+*B+ tree* allows duplicate values for a key. Each value is made part of
+an array which hashes to the same key.
+
+::
+    
+    (with-cabinet { :filename "test.tokyo" :mode (+ OWRITER OCREAT) :type :bplus } 
+        (doseq [[name val] [["language" "clojure"] ["language" "common lisp"] ["OS" "Linux"] ["OS" "Mac"]]]
+            (putdup-value name val)))
+
+Query::
+
+    (with-cabinet { :filename "test.tokyo" :mode OREADER } 
+        (getdup-value "language"))
+    => #<ArrayList [clojure, common lisp]>
+
+    
 Tables
 ------
 
