@@ -14,7 +14,7 @@ looking to share a Tokyo Cabinet to multiple computers, you actually
 want Tokyo Tyrant.
 
 INSTALLATION
------------
+------------
 
    ./install-java-client.sh
    lein deps && lein jar
