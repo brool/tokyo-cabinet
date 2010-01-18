@@ -13,6 +13,12 @@ Note that this is appropriate for local storage only -- if you're
 looking to share a Tokyo Cabinet to multiple computers, you actually
 want Tokyo Tyrant.
 
+INSTALLATION
+-----------
+
+   ./install-java-client.sh
+   lein deps && lein jar
+
 Basic Usage
 -----------
 
