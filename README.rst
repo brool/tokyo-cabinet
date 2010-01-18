@@ -20,10 +20,8 @@ INSTALLATION
 
    lein deps && lein jar
 
-   To use it add [tokyocabinet-clj "0.1.0"] to your project.clj
+   To use it add [org.clojars.db/tokyo-cabinet "0.1.0"] to your project.clj
  
-   
-
 Basic Usage
 -----------
 
