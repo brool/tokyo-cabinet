@@ -17,10 +17,10 @@ INSTALLATION
 ------------
 
    ./install-java-client.sh
+
    lein deps && lein jar
 
-
-   To use it add [tokyocabinet-clj "0.1"] to your project.clj
+   To use it add [tokyocabinet-clj "0.1.0"] to your project.clj
  
    
 
