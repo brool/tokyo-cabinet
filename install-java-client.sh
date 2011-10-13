@@ -1,6 +1,6 @@
 #!/bin/bash
 
-wget http://1978th.net/tokyocabinet/javapkg/tokyocabinet-java-1.22.tar.gz
+wget http://downloads.sourceforge.net/project/tokyocabinet/tokyocabinet-java/1.22/tokyocabinet-java-1.22.tar.gz
 
 tar zxf tokyocabinet-java-1.22.tar.gz
 
